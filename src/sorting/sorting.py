@@ -31,8 +31,16 @@ def merge(arrA, arrB):
 # TO-DO: implement the Merge Sort function below recursively
 def merge_sort(arr):
     # Your code here
+    # this is where it stops
+    if len(arr) <= 1:
+        return arr
 
+    mid = len(arr) // 2
+    
+    left = merge_sort(arr[0:mid])
+    right = merge_sort(arr[mid:])
 
+    arr = merge(left, right)
     return arr
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
@@ -48,7 +56,10 @@ def merge_sort_in_place(arr, l, r):
     # Your code here
     pass
 
-a = [11, 22, 33, 44, 55, 66, 77]
-b = [13, 25, 32, 46, 52, 67, 71]
+# a = [11, 22, 33, 44, 55, 66, 77]
+# b = [13, 25, 32, 46, 52, 67, 71]
+c = [22, 44, 66, 23, 42, 73, 24, 99]
 
-print(merge(a, b))
+# print(merge(a, b))
+
+print(merge_sort(c))
